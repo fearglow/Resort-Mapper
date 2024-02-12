@@ -174,7 +174,7 @@ class ResortMatcherApp:
 
 
     def find_best_match(self, name, street, city, state, zip_code, latitude, longitude, df_to_match):
-        name_threshold = 80  # Name similarity threshold for "Highest" probability
+        name_threshold = 90  # Name similarity threshold for "Highest" probability
         address_threshold = 80  # Address similarity threshold for "Highest" probability
         distance_threshold = 10  # Miles for considering a "Highest" match
         matched_distance_threshold = 50  # Miles for considering a "Matched Resort"
@@ -244,7 +244,7 @@ class ResortMatcherApp:
                     self.final_results.to_excel(writer, sheet_name='Processed Results', index=False)
                     self.df_our_resorts.to_excel(writer, sheet_name='Our Resorts', index=False)
                     self.df_to_match.to_excel(writer, sheet_name='Resorts to Match', index=False)
-                    
+
                     # Additional sheets if needed
                     workbook = writer.book
                     worksheet = writer.sheets['Processed Results']
