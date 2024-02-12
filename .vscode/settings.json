@@ -1,0 +1,13 @@
+{
+    "cSpell.words": [
+        "fuzzywuzzy",
+        "geocoders",
+        "geopy",
+        "iloc",
+        "iterrows",
+        "Nominatim",
+        "openpyxl",
+        "pady",
+        "yscrollcommand"
+    ]
+}
