@@ -141,8 +141,7 @@ class ResortMatcherApp:
 
             # Combine the original DataFrame with the flattened match details
             matches_df = pd.DataFrame(flattened_matches)
-            reordered_columns = ['Match Status', 'Match Probability %'] + [col for col in matches_df.columns if col not in ['Match Status', 'Match Probability %']]
-            self.final_results = matches_df[reordered_columns]
+            self.final_results = matches_df
 
             if not self.cancel_process:
                 self.update_progress(100)
@@ -243,9 +242,13 @@ class ResortMatcherApp:
             if save_path:
                 with pd.ExcelWriter(save_path, engine="openpyxl") as writer:
                     self.final_results.to_excel(writer, sheet_name='Processed Results', index=False)
+                    self.df_our_resorts.to_excel(writer, sheet_name='Our Resorts', index=False)
+                    self.df_to_match.to_excel(writer, sheet_name='Resorts to Match', index=False)
+                    
                     # Additional sheets if needed
                     workbook = writer.book
                     worksheet = writer.sheets['Processed Results']
+
 
                     # Apply formatting
                     red_fill = PatternFill(start_color='FF0000', end_color='FF0000', fill_type='solid')
