@@ -92,7 +92,7 @@ class ResortMatcherApp:
                     return
 
                 match_result = self.find_best_match(
-                    resort_data["Match Status"], resort_data["Match Probability %"], resort_data["Resort Name"], resort_data["Resort Street"], resort_data["Resort City"],
+                    resort_data["Resort Name"], resort_data["Resort Street"], resort_data["Resort City"],
                     resort_data["Resort State"], resort_data["Resort Zip"], resort_data.get("Latitude", "N/A"),
                     resort_data.get("Longitude", "N/A"), self.df_to_match
                 )
